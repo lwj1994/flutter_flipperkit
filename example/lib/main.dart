@@ -9,8 +9,6 @@ void main() {
   FlipperClient flipperClient = FlipperClient.getDefault();
 
   flipperClient.addPlugin(new FlipperNetworkPlugin());
-  flipperClient.addPlugin(new FlipperSharedPreferencesPlugin());
-  // flipperClient.addPlugin(new FlipperDatabaseBrowserPlugin());
   flipperClient.addPlugin(new FlipperReduxInspectorPlugin());
   flipperClient.start();
 

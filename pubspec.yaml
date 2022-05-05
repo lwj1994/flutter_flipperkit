@@ -1,11 +1,11 @@
-name: flutter_flipperkit
+name: flutter_flipper
 description: Flipper (Extensible mobile app debugger) for flutter.
-version: 0.0.28
-homepage: https://github.com/leanflutter/flutter_flipperkit
+version: 0.0.2
+homepage: https://github.com/lwj1994/flutter_flipperkit
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=1.20.0 <2.0.0"
+  sdk: '2.14.3'
+  flutter: '>=2.5.2'
 
 dependencies:
   flutter:
@@ -28,7 +28,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: org.leanflutter.plugins.flutter_flipperkit
+        package: com.lwjlol.flutter_flipperkit
         pluginClass: FlutterFlipperkitPlugin
       ios:
         pluginClass: FlutterFlipperkitPlugin

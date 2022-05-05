@@ -1,4 +1,4 @@
-package org.leanflutter.plugins.flutter_flipperkit_example;
+package com.lwjlol.flutter_flipperkit_example;
 
 import io.flutter.embedding.android.FlutterActivity;
 

@@ -1,4 +1,4 @@
-group 'org.leanflutter.plugins.flutter_flipperkit'
+group 'com.lwjlol.flutter_flipperkit'
 version '1.0'
 
 buildscript {
@@ -8,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.android.tools.build:gradle:3.5.4'
     }
 }
 
@@ -31,9 +31,8 @@ android {
         disable 'InvalidPackage'
     }
     dependencies {
-        releaseImplementation project(':flipper-no-op')
-        debugImplementation 'com.facebook.flipper:flipper:0.111.0'
-        debugImplementation 'com.facebook.flipper:flipper-network-plugin:0.111.0'
-        debugImplementation 'com.facebook.soloader:soloader:0.10.1'
+        debugImplementation 'com.facebook.flipper:flipper:0.142.0'
+        debugImplementation 'com.facebook.flipper:flipper-network-plugin:0.142.0'
+        debugImplementation 'com.facebook.soloader:soloader:0.10.3'
     }
 }

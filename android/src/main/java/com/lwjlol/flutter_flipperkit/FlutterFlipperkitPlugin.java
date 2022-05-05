@@ -1,4 +1,4 @@
-package org.leanflutter.plugins.flutter_flipperkit;
+package com.lwjlol.flutter_flipperkit;
 
 import android.content.Context;
 
@@ -9,11 +9,9 @@ import com.facebook.flipper.android.utils.FlipperUtils;
 import com.facebook.flipper.core.FlipperClient;
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin;
 import com.facebook.flipper.plugins.network.NetworkReporter;
-import com.facebook.flipper.plugins.sharedpreferences.SharedPreferencesFlipperPlugin;
 import com.facebook.soloader.SoLoader;
+import com.lwjlol.flutter_flipperkit.plugins.FlipperReduxInspectorPlugin;
 
-import org.leanflutter.plugins.flutter_flipperkit.plugins.FlipperDatabaseBrowserPlugin;
-import org.leanflutter.plugins.flutter_flipperkit.plugins.FlipperReduxInspectorPlugin;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -23,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import io.flutter.BuildConfig;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.EventChannel;
@@ -47,9 +46,6 @@ public class FlutterFlipperkitPlugin implements FlutterPlugin, MethodCallHandler
 
     private FlipperClient flipperClient;
     private NetworkFlipperPlugin networkFlipperPlugin;
-    private SharedPreferencesFlipperPlugin sharedPreferencesFlipperPlugin;
-
-    private FlipperDatabaseBrowserPlugin flipperDatabaseBrowserPlugin;
     private FlipperReduxInspectorPlugin flipperReduxInspectorPlugin;
 
     @Override
@@ -80,10 +76,7 @@ public class FlutterFlipperkitPlugin implements FlutterPlugin, MethodCallHandler
 
         final String method = call.method;
 
-        if (method.startsWith("pluginDatabaseBrowser")) {
-            flipperDatabaseBrowserPlugin.handleMethodCall(call, result);
-            return;
-        } else if (method.startsWith("pluginReduxInspector")) {
+        if (method.startsWith("pluginReduxInspector")) {
             flipperReduxInspectorPlugin.handleMethodCall(call, result);
             return;
         }
@@ -124,12 +117,6 @@ public class FlutterFlipperkitPlugin implements FlutterPlugin, MethodCallHandler
             switch (pluginId) {
                 case NetworkFlipperPlugin.ID:
                     flipperClient.addPlugin(networkFlipperPlugin);
-                    break;
-                case "Preferences":
-                    flipperClient.addPlugin(sharedPreferencesFlipperPlugin);
-                    break;
-                case FlipperDatabaseBrowserPlugin.ID:
-                    flipperClient.addPlugin(flipperDatabaseBrowserPlugin);
                     break;
                 case FlipperReduxInspectorPlugin.ID:
                     flipperClient.addPlugin(flipperReduxInspectorPlugin);
@@ -249,7 +236,6 @@ public class FlutterFlipperkitPlugin implements FlutterPlugin, MethodCallHandler
     @Override
     public void onListen(Object args, EventChannel.EventSink eventSink) {
         this.eventSink = eventSink;
-        flipperDatabaseBrowserPlugin.setEventSink(this.eventSink);
     }
 
     @Override
@@ -268,9 +254,6 @@ public class FlutterFlipperkitPlugin implements FlutterPlugin, MethodCallHandler
         if (BuildConfig.DEBUG && FlipperUtils.shouldEnableFlipper(context)) {
             flipperClient = AndroidFlipperClient.getInstance(context);
             networkFlipperPlugin = new NetworkFlipperPlugin();
-            sharedPreferencesFlipperPlugin = new SharedPreferencesFlipperPlugin(context, "FlutterSharedPreferences");
-
-            flipperDatabaseBrowserPlugin = new FlipperDatabaseBrowserPlugin();
             flipperReduxInspectorPlugin = new FlipperReduxInspectorPlugin();
         }
 
