@@ -28,7 +28,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.lwjlol.flutter_flipperkit
+        package: com.lwjlol.flutter_flipper
         pluginClass: FlutterFlipperkitPlugin
       ios:
         pluginClass: FlutterFlipperkitPlugin
