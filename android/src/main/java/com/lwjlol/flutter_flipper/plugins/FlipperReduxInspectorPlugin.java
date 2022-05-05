@@ -1,4 +1,4 @@
-package com.lwjlol.flutter_flipperkit.plugins;
+package com.lwjlol.flutter_flipper.plugins;
 
 import com.facebook.flipper.core.FlipperObject;
 import com.facebook.flipper.plugins.common.BufferingFlipperPlugin;

@@ -1,4 +1,4 @@
-package com.lwjlol.flutter_flipperkit;
+package com.lwjlol.flutter_flipper;
 
 import android.content.Context;
 
