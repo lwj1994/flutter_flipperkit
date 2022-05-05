@@ -10,7 +10,7 @@ import com.facebook.flipper.core.FlipperClient;
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin;
 import com.facebook.flipper.plugins.network.NetworkReporter;
 import com.facebook.soloader.SoLoader;
-import com.lwjlol.flutter_flipperkit.plugins.FlipperReduxInspectorPlugin;
+import com.lwjlol.flutter_flipper.plugins.FlipperReduxInspectorPlugin;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
